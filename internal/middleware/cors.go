@@ -11,7 +11,7 @@ func CORS(next http.Handler) http.Handler {
 		allowedOrigins := map[string]bool{
 			"http://localhost:3000": true,
 			"http://localhost:3001": true,
-			"https://your-frontend.onrender.com": true, // 🔥 CHANGE THIS
+			"https://peoplespost.vercel.app": true, // 🔥 CHANGE THIS
 		}
 
 		if allowedOrigins[origin] {
