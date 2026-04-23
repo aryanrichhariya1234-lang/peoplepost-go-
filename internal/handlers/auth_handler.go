@@ -88,7 +88,8 @@ func SignUp(w http.ResponseWriter, r *http.Request) {
 		Name:     "token",
 		Value:    token,
 		HttpOnly: true,
-		Secure:   false,
+		Secure:   true,
+		SameSite: http.SameSiteNoneMode, 
 		Path:     "/",
 	})
 
@@ -145,7 +146,8 @@ func Login(w http.ResponseWriter, r *http.Request) {
 		Name:     "token",
 		Value:    token,
 		HttpOnly: true,
-		Secure:   false,
+		Secure:   true,
+		SameSite: http.SameSiteNoneMode, 
 		Path:     "/",
 	})
 
@@ -219,7 +221,8 @@ func UpdatePassword(w http.ResponseWriter, r *http.Request) {
 		Name:     "token",
 		Value:    token,
 		HttpOnly: true,
-		Secure:   false,
+		Secure:   true,
+		SameSite: http.SameSiteNoneMode, 
 		Path:     "/",
 	})
 
