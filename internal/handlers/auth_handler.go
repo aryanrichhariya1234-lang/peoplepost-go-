@@ -237,9 +237,16 @@ func Logout(w http.ResponseWriter, r *http.Request) {
 	http.SetCookie(w, &http.Cookie{
 		Name:     "token",
 		Value:    "",
-		HttpOnly: true,
-		Expires:  time.Unix(0, 0),
 		Path:     "/",
+
+		// 🔥 MUST MATCH LOGIN COOKIE
+		HttpOnly: true,
+		Secure:   true,
+		SameSite: http.SameSiteNoneMode,
+
+		// expire immediately
+		Expires:  time.Unix(0, 0),
+		MaxAge:   -1,
 	})
 
 	utils.JSON(w, http.StatusOK, map[string]interface{}{
